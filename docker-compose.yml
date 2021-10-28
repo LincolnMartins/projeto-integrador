@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    volumes:
+      - /tmp/app/mysqld:/var/run/mysqld
+      - ./db:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+       MYSQL_DATABASE: 'projetoIntegrador'
+       MYSQL_USER: 'root'
+       MYSQL_PASSWORD: 'password'
+       MYSQL_ROOT_PASSWORD: 'password'
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/webapp
+      - /tmp/app/mysqld:/run/mysqld
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
