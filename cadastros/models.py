@@ -19,7 +19,7 @@ class OrdemServico(models.Model):
     usinagem = models.BooleanField()
     montagem = models.BooleanField()
     revisao = models.BooleanField(verbose_name='Revisão')
-    motor = models.BooleanField()
+    motorCompleto = models.BooleanField()
     cabecote = models.BooleanField(verbose_name='Cabeçote')
     outros = models.CharField(max_length=20)
     #servico_biela_idbiela INT
