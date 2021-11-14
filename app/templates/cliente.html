@@ -1,0 +1,43 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %} Cliente {% endblock %}
+
+{% block conteudo %}
+    <div class="main-container">
+        <h3>Clientes</h3>
+        <hr>
+        {% if messages %}
+            <ul class="success">
+                {% for message in messages %}
+                    <li {% if message.tag %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <form action="" method="post">
+            {% csrf_token %}
+            {{form}}
+            <button type="submit" class="btn btn-primary">Buscar Cliente</button>
+            <a class="btn btn-primary" href="{% url 'cadastrocliente' %}" role="button">Novo Cliente</a>
+        </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Apagar</th>
+                </tr>
+            </thead>
+            {% for dados in queryset %}   
+                <tr>
+                    <td><a href="{% url 'atualizacliente' dados.id %}">{{dados.nome}}</a></td>
+                    <td>{{dados.cpf}}</td>
+                    <td>{{dados.telefone}}</td>
+                    <td><a href="{% url 'apagarcliente' dados.id %}">Apagar</a></td>
+                </tr> 
+            {% endfor %}   
+        </table>
+    </div>
+{% endblock %}

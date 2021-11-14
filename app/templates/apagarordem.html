@@ -1,0 +1,15 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %} Ordem {% endblock %}
+
+{% block conteudo %}
+    <h3>Ordem</h3>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+       <h3>Apagar esta Ordem de Serviço?</h3>
+       <input class='btn btn-danger' type="submit" value="Sim">
+       <a href="/"><div class="btn btn-success">Cancelar</div></a>
+    </form>
+{% endblock %}

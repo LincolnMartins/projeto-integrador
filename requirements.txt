@@ -2,3 +2,4 @@ Django
 mysql-connector
 mariadb
 mysqlclient
+django-crispy-forms

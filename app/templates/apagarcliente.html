@@ -1,0 +1,15 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %} Cliente {% endblock %}
+
+{% block conteudo %}
+    <h3>Cliente</h3>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+       <h3>Apagar o cadastro deste Cliente?</h3>
+       <input class='btn btn-danger' type="submit" value="Sim">
+       <a href="/cliente"><div class="btn btn-success">Cancelar</div></a>
+    </form>
+{% endblock %}

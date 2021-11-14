@@ -1,0 +1,43 @@
+{% extends 'modelo.html' %}
+{% load static %}
+
+{% block titulo %} Ordem de Serviço {% endblock %}
+
+{% block conteudo %}
+    <h3>Ordem de Serviço</h3>
+    <hr>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li {% if message.tag %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn-primary">Buscar Ordem</button>
+        <a class="btn btn-primary" href="{% url 'novaordem' %}" role="button">Nova Ordem</a>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Cliente</th>
+                <th>Data Entrada</th>
+                <th>Data Saída</th>
+                <th>Apagar</th>
+            </tr>
+        </thead>
+        {% for dados in queryset %}   
+            <tr>
+                <td><a href="{% url 'atualizaordem' dados.id %}">{{dados.numeroordem}}</a></td>
+                <td>{{dados.cliente}}</td>
+                <td>{{dados.data_entrada}}</td>
+                <td>{{dados.data_saida}}</td>
+                <td><a href="{% url 'apagarordem' dados.id %}">Apagar </a></td>
+            </tr> 
+        {% endfor %}   
+    </table>
+{% endblock %}
