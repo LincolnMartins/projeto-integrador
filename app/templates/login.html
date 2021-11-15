@@ -16,19 +16,22 @@
     {% block body %}
       <div id="login-container">
         <h1>Login</h1>
-        <form action="">
-          <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" placeholder="Digite seu e-email" autocomplete="off">
+        <form action="" method="POST">
+          {% csrf_token %}
+          <label for="user">Usuario</label>
+          <input type="user" name="user" id="user" placeholder="Digite seu nome de usuario" autocomplete="off">
           <label for="password">Senha</label>
           <input type="password" name="password" id="password" placeholder="Digite sua senha">
           <a href="#" id="forgot-pass">Esqueceu a senha?</a>
-          <input type="submit" value="Login">
+          <input type="submit" value="Logar">
         </form>
+        {% block link %}
         <div id="register-container">
           <p>Ainda não tem uma conta?</p>
-          <a href="#">Registrar</a>
+          <a href="{% url 'registro' %}">Registrar</a>
         </div>
       </div>
+      {% endblock %}
     {% endblock %}
   </body>
   

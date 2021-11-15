@@ -1,11 +1,10 @@
 from django.urls import path
 from . import views
-from .views import IndexView, RegisterView
 
 urlpatterns = [
     # path('endereco/', MinhaView.as_view(), name='nome-da-url'),
-    path('', IndexView.as_view(), name='home'),
-    path('registro/', RegisterView.as_view(), name='registro'),
+    path('', views.logar, name='home'),
+    path('registro/', views.cadastrarusuario, name='registro'),
     path('dashboard/', views.listaordem, name='listaordem'),
     path('cliente/', views.listacliente, name='cliente'),
     path('cadastrocliente/', views.cadastrocliente, name='cadastrocliente'),

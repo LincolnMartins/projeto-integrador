@@ -1,37 +1,44 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
-from django.views.generic.edit import CreateView
-from django.urls import reverse_lazy
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from .models import Cliente, Ordem
 from .forms import Buscacliente, Clienteform, Atualizacliente, Ordemform, Buscaordem, Atualizaordem
-from django.contrib import messages
+
 
 # Create your views here.
-class IndexView(TemplateView):
-    template_name = 'login.html'
+def logar(request):
+    if request.method == 'POST':
+        usuario = request.POST.get('user')
+        senha = request.POST.get('password')
 
-class RegisterView(CreateView):
-    #model = Cliente
-    #fields = ['nome', 'cpf', 'cnpj', 'endereco', 'bairro', 'cidade', 'estado', 'cep', 'telefone']
-    #template_name = 'cadastros/form.html'
-    #sucess_url = reverse_lazy('home')
-    template_name = 'registro.html'
-    
-def ordemservico(request):
-    if(request.user.is_authenticated):
+        user = authenticate(username=usuario, password=senha)
+        if user is not None:
+            login(request, user)
+            return render(request,'index.html')
+        else:
+            messages.error(request, 'Erro! Usuario ou senha inválidos')
+    return render(request,'login.html')
+
+def cadastrarusuario(request):
+    if request.method == 'POST':
+        usuario = request.POST.get('user')
+        mail = request.POST.get('email')
+        senha = request.POST.get('password')
+        
+        if User.objects.filter(username = usuario).exists():
+            return messages.error(request, 'Erro! Usuário já existe')
+        elif User.objects.filter(email = mail).exists():
+            return messages.error(request, 'Erro! Já existe um usuário com o mesmo e-mail')
+            
+        newuser = User.objects.create_user(username=usuario, email=mail, password=senha)
+        newuser.save()
+        messages.success(request, 'Registrado com sucesso!')
         return render(request,'login.html')
-
-    form = Ordemform(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        return redirect('/ordemservico')
-    context = {
-        "form": form,
-    }
-    return render(request,'index.html', context)
+    return render(request,'registro.html')
 
 def cadastrocliente(request):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     form = Clienteform(request.POST or None)
@@ -45,13 +52,13 @@ def cadastrocliente(request):
     return render(request,'cadastrocliente.html', context)
 
 def novaordem(request):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     form = Ordemform(request.POST or None)
     if request.method == 'POST' and form.is_valid():
         form.save()
-        messages.success(request, 'Cliente cadastrado!')
+        messages.success(request, 'Ordem de serviço criada!')
         return redirect('/')
     context = {
         "form": form,
@@ -59,7 +66,7 @@ def novaordem(request):
     return render(request,'novaordem.html', context)
 
 def listacliente(request):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     queryset = Cliente.objects.all()
@@ -73,7 +80,7 @@ def listacliente(request):
     return render(request, 'cliente.html', context)
 
 def listaordem(request):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
         
     queryset = Ordem.objects.all()
@@ -87,7 +94,7 @@ def listaordem(request):
     return render(request, 'index.html', context)
 
 def atualizacliente(request, pk):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     queryset = Cliente.objects.get(id=pk)
@@ -103,7 +110,7 @@ def atualizacliente(request, pk):
     return render (request, 'cadastrocliente.html', context)
 
 def atualizaordem(request, pk):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     queryset = Ordem.objects.get(id=pk)
@@ -119,7 +126,7 @@ def atualizaordem(request, pk):
     return render (request, 'novaordem.html', context)
 
 def apagarordem(request, pk):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     queryset = Ordem.objects.get(id=pk)
@@ -129,7 +136,7 @@ def apagarordem(request, pk):
     return render(request, 'apagarordem.html')
 
 def apagarcliente(request, pk):
-    if(request.user.is_authenticated):
+    if not request.user.is_authenticated:
         return render(request,'login.html')
 
     queryset = Cliente.objects.get(id=pk)
