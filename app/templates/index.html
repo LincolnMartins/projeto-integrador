@@ -15,8 +15,9 @@
     {% endif %}
     <form action="" method="POST">
         {% csrf_token %}
-        {{form}}
-        <button type="submit" class="btn btn-primary">Buscar Ordem</button>
+        <input type="input" name="campobusca" autocomplete="off">
+        <input type="submit" name="buscaordem" class="btn btn-primary" value="Buscar Ordem por numero" role="button"/>
+        <input type="submit" name="buscaordemcliente" class="btn btn-primary" value="Buscar Ordem por cliente" role="button"/>
         <a class="btn btn-primary" href="{% url 'novaordem' %}" role="button">Nova Ordem</a>
     </form>
 

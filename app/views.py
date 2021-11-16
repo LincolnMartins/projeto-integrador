@@ -1,24 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from .models import Cliente, Ordem
 from .forms import Buscacliente, Clienteform, Atualizacliente, Ordemform, Buscaordem, Atualizaordem
 
-
-# Create your views here.
-def logar(request):
-    if request.method == 'POST':
-        usuario = request.POST.get('user')
-        senha = request.POST.get('password')
-
-        user = authenticate(username=usuario, password=senha)
-        if user is not None:
-            login(request, user)
-            return render(request,'index.html')
-        else:
-            messages.error(request, 'Erro! Usuario ou senha inválidos')
-    return render(request,'login.html')
+########################################### USUARIO(RETIFICAS) #############################################
 
 def cadastrarusuario(request):
     if request.method == 'POST':
@@ -34,68 +21,65 @@ def cadastrarusuario(request):
         newuser = User.objects.create_user(username=usuario, email=mail, password=senha)
         newuser.save()
         messages.success(request, 'Registrado com sucesso!')
-        return render(request,'login.html')
+        return redirect('home')
     return render(request,'registro.html')
 
+def logar(request):
+    if request.method == 'POST':
+        usuario = request.POST.get('user')
+        senha = request.POST.get('password')
+
+        user = authenticate(username=usuario, password=senha)
+        if user is not None:
+            login(request, user)
+            return redirect('listaordem')
+        else:
+            messages.error(request, 'Erro! Usuario ou senha inválidos')
+    else:
+        logout(request)
+    return render(request,'login.html')
+
+def sair(request):
+    if request.user.is_authenticated and request.method == 'POST' and request.GET.get('logout'):
+        return redirect('home')
+
+########################################### CLIENTES #############################################
+
 def cadastrocliente(request):
-    if not request.user.is_authenticated:
-        return render(request,'login.html')
-
-    form = Clienteform(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        messages.success(request, 'Cliente cadastrado!')
-        return redirect('/cliente')
-    context = {
-        "form": form,
-    }
-    return render(request,'cadastrocliente.html', context)
-
-def novaordem(request):
-    if not request.user.is_authenticated:
-        return render(request,'login.html')
-
-    form = Ordemform(request.POST or None)
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        messages.success(request, 'Ordem de serviço criada!')
-        return redirect('/')
-    context = {
-        "form": form,
-    }
-    return render(request,'novaordem.html', context)
+    if request.user.is_authenticated:
+        form = Clienteform(request.POST or None)
+        if request.method == 'POST' and form.is_valid():
+            obj = form.save(commit=False)
+            obj.usuario = request.user
+            obj.save()
+            messages.success(request, 'Cliente cadastrado!')
+            return redirect('/cliente')
+        context = { "form": form }
+        return render(request,'cadastrocliente.html', context)
+    else: return redirect('home')
 
 def listacliente(request):
     if not request.user.is_authenticated:
-        return render(request,'login.html')
-
+        return redirect('home')
+        
+    busca = request.POST.get('campobusca')
     queryset = Cliente.objects.all()
-    form = Buscacliente(request.POST or None)
-    if request.method == 'POST':
-        queryset = Cliente.objects.filter(cpf__icontains=form['cpf'].value(), usuario=request.user.id)
+    #form = Buscacliente(request.POST or None)
+
+    if request.method == "POST":
+        if request.GET.get('buscacpf'):
+            queryset = Cliente.objects.filter(cpf__icontains=busca, usuario=request.user)
+        elif request.GET.get('buscacnpj'):
+            queryset = Cliente.objects.filter(cnpj__icontains=busca, usuario=request.user)
+
     context = {
-        "form": form,
         "queryset": queryset,
     }
     return render(request, 'cliente.html', context)
 
-def listaordem(request):
-    if not request.user.is_authenticated:
-        return render(request,'login.html')
-        
-    queryset = Ordem.objects.all()
-    form = Buscaordem(request.POST or None)
-    if request.method == 'POST':
-        queryset = Ordem.objects.filter(numeroordem__icontains=form['numeroordem'].value(), usuario=request.user.id)
-    context = {
-        "form": form,
-        "queryset": queryset,
-    }
-    return render(request, 'index.html', context)
-
 def atualizacliente(request, pk):
     if not request.user.is_authenticated:
-        return render(request,'login.html')
+        return redirect('home')
 
     queryset = Cliente.objects.get(id=pk)
     form = Atualizacliente(instance=queryset)
@@ -109,9 +93,52 @@ def atualizacliente(request, pk):
     }
     return render (request, 'cadastrocliente.html', context)
 
+def apagarcliente(request, pk):
+    if not request.user.is_authenticated:
+        return redirect('home')
+
+    queryset = Cliente.objects.get(id=pk)
+    if request.method == "POST":
+        queryset.delete()
+        return redirect('/cliente')
+    return render(request, 'apagarcliente.html')
+
+########################################### ORDENS DE SERVIÇO #############################################
+
+def novaordem(request):
+    if not request.user.is_authenticated:
+        return redirect('home')
+
+    form = Ordemform(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        form.Meta.model.usuario = request.user.id
+        form.save()
+        messages.success(request, 'Ordem de serviço criada!')
+        return redirect('listaordem')
+    context = {
+        "form": form,
+    }
+    return render(request,'novaordem.html', context)
+
+def listaordem(request):
+    if not request.user.is_authenticated:
+        return redirect('home')
+    
+    busca = request.POST.get('campobusca')
+    queryset = Ordem.objects.all()
+    if request.method == "POST":
+        if request.GET.get('buscaordem'):
+            queryset = Ordem.objects.filter(id__icontains=busca, usuario=request.user.id)
+        elif request.GET.get('buscaordemcliente'):
+            queryset = Ordem.objects.filter(cliente__icontains=busca, usuario=request.user.id)
+    context = {
+        "queryset": queryset,
+    }
+    return render(request, 'index.html', context)
+
 def atualizaordem(request, pk):
     if not request.user.is_authenticated:
-        return render(request,'login.html')
+        return redirect('home')
 
     queryset = Ordem.objects.get(id=pk)
     form = Atualizaordem(instance=queryset)
@@ -119,7 +146,7 @@ def atualizaordem(request, pk):
         form = Atualizaordem(request.POST, instance=queryset)
         if form.is_valid():
             form.save()
-            return redirect ('/')
+            return redirect ('listaordem')
     context = {
         "form": form,
     }
@@ -127,20 +154,10 @@ def atualizaordem(request, pk):
 
 def apagarordem(request, pk):
     if not request.user.is_authenticated:
-        return render(request,'login.html')
+        return redirect('home')
 
     queryset = Ordem.objects.get(id=pk)
     if request.method == "POST":
         queryset.delete()
-        return redirect('/')
+        return redirect('listaordem')
     return render(request, 'apagarordem.html')
-
-def apagarcliente(request, pk):
-    if not request.user.is_authenticated:
-        return render(request,'login.html')
-
-    queryset = Cliente.objects.get(id=pk)
-    if request.method == "POST":
-        queryset.delete()
-        return redirect('/cliente')
-    return render(request, 'apagarcliente.html')

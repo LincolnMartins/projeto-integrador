@@ -7,23 +7,10 @@
 {% block conteudo %}
     <h3>Cadastro de Cliente</h3>
     <hr>
-    
     <form action="" method="post">
         {% csrf_token %}
-        {{ form|crispy}}
-        <hr>
-        <input class="btn btn-primary" type="submit" value="Salvar">
-    </form>
-    
-
-    {% comment %}
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="row">
-            <div class="col-6">
-            {{ form.usuario|as_crispy_field }}
-            </div>
-        </div>
+        {{ form|crispy }}
+        {% comment %}
         <div class="row">
             <div class="col-6">
                 {{ form.nome|as_crispy_field }}
@@ -57,12 +44,12 @@
                 {{ form.estado|as_crispy_field }}
             </div>
         </div>
-        
+        {% endcomment %}
         <br>
         <hr>
         <input class="btn btn-primary" type="submit" value="Salvar">
         
     </form>
-    {% endcomment %}
+    
 
 {% endblock %}

@@ -16,8 +16,10 @@
         {% endif %}
         <form action="" method="post">
             {% csrf_token %}
-            {{form}}
-            <button type="submit" class="btn btn-primary">Buscar Cliente</button>
+            <input type="input" name="campobusca" autocomplete="off">
+            <!--{{form}}-->
+            <input type="submit" name="buscacpf" class="btn btn-primary" value="Buscar CPF" role="button"/>
+            <input type="submit" name="buscacnpj" class="btn btn-primary" value="Buscar CNPJ" role="button"/>
             <a class="btn btn-primary" href="{% url 'cadastrocliente' %}" role="button">Novo Cliente</a>
         </form>
 

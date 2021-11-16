@@ -10,10 +10,10 @@ class ClienteAdmin(admin.ModelAdmin):
     search_fields = ['nome', 'cpf']
 
 class OrdemAdmin(admin.ModelAdmin):
-    list_display = ['numeroordem']
+    list_display = ['id']
     form = Ordemform
-    list_filter = ['numeroordem']
-    search_fields = ['numeroordem']
+    list_filter = ['id']
+    search_fields = ['id']
 
 admin.site.register(Cliente, ClienteAdmin)
 admin.site.register(Ordem, OrdemAdmin)
