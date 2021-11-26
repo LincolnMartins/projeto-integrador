@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'framework.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'projetoIntegrador',
         'USER': 'root',
         'PASSWORD': 'password',
