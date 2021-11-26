@@ -80,11 +80,11 @@ WSGI_APPLICATION = 'framework.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'projetoIntegrador',
-        'USER': 'root',
-        'PASSWORD': 'password',
-        'HOST': 'db',
-        'PORT': '3306'
+        'NAME': 'd62ct8u2bvuom',
+        'USER': 'xsjihxqihysdjt',
+        'PASSWORD': 'e5e7eb3c0e8db33e155cd58d39f42b40738d6eedd725111d92b9e43aaa859346',
+        'HOST': 'ec2-3-230-199-240.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
