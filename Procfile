@@ -1,1 +1,1 @@
-web: gunicorn retifica.wsgi
+web: gunicorn framework.wsgi
