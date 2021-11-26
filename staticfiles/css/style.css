@@ -1,0 +1,26 @@
+li{
+    list-style-type: none;
+    margin-left: 0px;
+}
+#sidebar{
+    background-color: rgb(75, 75, 75);
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+p{
+    font-weight: 800;
+    color: white;
+    font-size: larger;
+}
+hr{
+    margin: 30px 0px;
+}
+.success{
+    list-style: none;
+    background-color: green;
+    color: white;
+    box-shadow: 12px 12px 12px #e61c66;
+    text-align: center;
+}
