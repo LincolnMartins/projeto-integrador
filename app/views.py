@@ -63,7 +63,7 @@ def listacliente(request):
         return redirect('home')
         
     busca = request.POST.get('campobusca')
-    queryset = Cliente.objects.filter(usuario__icontains=request.user.id)
+    queryset = Cliente.objects.get(usuario=request.user.id)
     #form = Buscacliente(request.POST or None)
 
     if request.method == "POST":
