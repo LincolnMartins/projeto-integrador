@@ -21,6 +21,7 @@ class Cliente(models.Model):
 
 class Ordem(models.Model):
     id = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     cliente = models.ForeignKey(Cliente, on_delete=models.PROTECT)
     data_entrada = models.DateField()
     data_saida = models.DateField(blank=True, null=True)

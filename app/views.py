@@ -50,7 +50,7 @@ def cadastrocliente(request):
         form = Clienteform(request.POST or None)
         if request.method == 'POST' and form.is_valid():
             obj = form.save(commit=False)
-            obj.usuario = request.user.id
+            obj.usuario = request.user
             obj.save()
             messages.success(request, 'Cliente cadastrado!')
             return redirect('/cliente')
@@ -111,8 +111,11 @@ def novaordem(request):
 
     form = Ordemform(request.POST or None)
     if request.method == 'POST' and form.is_valid():
-        form.Meta.model.usuario = request.user.id
-        form.save()
+        obj = form.save(commit=False)
+        obj.usuario = request.user
+        obj.save()
+        #form.Meta.model.usuario = request.user
+        #form.save()
         messages.success(request, 'Ordem de serviço criada!')
         return redirect('listaordem')
     context = {
@@ -125,13 +128,13 @@ def listaordem(request):
         return redirect('home')
     
     busca = request.POST.get('campobusca')
-    queryset = Ordem.objects.filter(cliente__usuario=request.user.id)
+    queryset = Ordem.objects.filter(usuario=request.user.id)
 
     if request.method == "POST":
         if request.GET.get('buscaordem'):
-            queryset = Ordem.objects.filter(id=busca, cliente__usuario=request.user.id)
+            queryset = Ordem.objects.filter(id=busca, usuario=request.user.id)
         elif request.GET.get('buscaordemcliente'):
-            queryset = Ordem.objects.filter(cliente=busca, cliente__usuario=request.user.id)
+            queryset = Ordem.objects.filter(cliente=busca, usuario=request.user.id)
 
     context = {
         "queryset": queryset,
