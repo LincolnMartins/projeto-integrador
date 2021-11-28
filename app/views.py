@@ -119,7 +119,7 @@ def novaordem(request):
     context = {
         "form": form,
     }
-    return render(request,'novaordem.html', context)
+    return render(request,'novaordem.html')
 
 def listaordem(request):
     if not request.user.is_authenticated:
