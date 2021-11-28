@@ -68,9 +68,9 @@ def listacliente(request):
 
     if request.method == "POST":
         if request.GET.get('buscacpf'):
-            queryset = Cliente.objects.filter(cpf__icontains=busca, usuario=request.user.id)
+            queryset = Cliente.objects.filter(cpf__icontains=busca, usuario__icontains=request.user.id)
         elif request.GET.get('buscacnpj'):
-            queryset = Cliente.objects.filter(cnpj__icontains=busca, usuario=request.user.id)
+            queryset = Cliente.objects.filter(cnpj__icontains=busca, usuario__icontains=request.user.id)
 
     context = {
         "queryset": queryset,
@@ -128,9 +128,9 @@ def listaordem(request):
     queryset = Ordem.objects.all()
     if request.method == "POST":
         if request.GET.get('buscaordem'):
-            queryset = Ordem.objects.filter(id__icontains=busca, usuario=request.user.id)
+            queryset = Ordem.objects.filter(id__icontains=busca, usuario__icontains=request.user.id)
         elif request.GET.get('buscaordemcliente'):
-            queryset = Ordem.objects.filter(cliente__icontains=busca, usuario=request.user.id)
+            queryset = Ordem.objects.filter(cliente__icontains=busca, usuario__icontains=request.user.id)
     context = {
         "queryset": queryset,
     }
