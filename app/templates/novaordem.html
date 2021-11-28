@@ -10,7 +10,8 @@
     <h4>Informações de Entrada</h4><br>
     <form action="" method="post">
         {% csrf_token %}
-        <!--{{ form|crispy }}-->
+        {{ form|crispy }}
+        {% comment %}
         <div class="row">
             <div class="col-2">
                 {{ form.numero_ordem|as_crispy_field }}
@@ -773,6 +774,7 @@
         <div class="row">
             {{ form.outras_peca|as_crispy_field }}
         </div>
+        {% endcomment %}
         <hr>
         <input class="btn btn-primary" type="submit" value="Salvar">
     </form>
