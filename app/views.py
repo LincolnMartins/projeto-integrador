@@ -68,9 +68,9 @@ def listacliente(request):
 
     if request.method == "POST":
         if request.GET.get('buscacpf'):
-            queryset = Cliente.objects.filter(cpf__icontains=busca, usuario=request.user)
+            queryset = Cliente.objects.filter(cpf__icontains=busca, usuario=request.user.id)
         elif request.GET.get('buscacnpj'):
-            queryset = Cliente.objects.filter(cnpj__icontains=busca, usuario=request.user)
+            queryset = Cliente.objects.filter(cnpj__icontains=busca, usuario=request.user.id)
 
     context = {
         "queryset": queryset,
