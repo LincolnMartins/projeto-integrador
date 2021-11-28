@@ -114,8 +114,6 @@ def novaordem(request):
         obj = form.save(commit=False)
         obj.usuario = request.user
         obj.save()
-        #form.Meta.model.usuario = request.user
-        #form.save()
         messages.success(request, 'Ordem de serviço criada!')
         return redirect('listaordem')
     context = {

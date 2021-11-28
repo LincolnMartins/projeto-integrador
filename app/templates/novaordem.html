@@ -5,775 +5,775 @@
 {% block titulo %} Inicio {% endblock %}
 
 {% block conteudo %}
-<h3>Ordem de Serviço</h3>
-<hr>
-<h4>Informações de Entrada</h4><br>
-<form action="" method="post">
-    {% csrf_token %}
-    <!--{{ form|crispy }}-->
-    <div class="row">
-        <div class="col-2">
-            {{ form.numero_ordem|as_crispy_field }}
+    <h3>Ordem de Serviço</h3>
+    <hr>
+    <h4>Informações de Entrada</h4><br>
+    <form action="" method="post">
+        {% csrf_token %}
+        <!--{{ form|crispy }}-->
+        <div class="row">
+            <div class="col-2">
+                {{ form.numero_ordem|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.cliente|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.data_entrada|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.data_saida|as_crispy_field }}
+            </div>
         </div>
-        <div class="col-6">
-            {{ form.cliente|as_crispy_field }}
+        <div class="row">
+            <div class="col-4">
+                {{ form.numero_chassi|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.numero_bloco|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.modelo_motor|as_crispy_field }}
+                <br>
+            </div>
+            <hr>
         </div>
-        <div class="col-2">
-            {{ form.data_entrada|as_crispy_field }}
+        <h4>Informações do Serviço</h4><br>
+        <div class="row">
+            <div class="col-2">
+                {{ form.pistao_com_anel|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_pist_c_anel|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_pist_c_anel|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.aneis_do_pistao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_aneis_do_pistao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_aneis_do_pistao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.retentor_tras|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_retentor_tras|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_retentor_tras|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.kits_motor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_kits_motor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_quant_kits_motor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bronz_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bronz_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bronz_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bronzina_mancal|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bronzina_mancal|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bronzina_mancal|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bucha_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bucha_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bucha_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bucha_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bucha_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bucha_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.paraf_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_paraf_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_paraf_biela|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.meia_lua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_meia_lua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_meia_lua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.jogo_de_juntas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_jogo_de_juntas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_jogo_de_juntas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.retentor_diant|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_retentor_diant|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_retentor_diant|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.retentor_tras|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_retentor_tras|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_quant_retentor_tras|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.sedes_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_sedes_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_sedes_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.sedes_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_sedes_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_sedes_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.guias_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_guias_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_guias_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.guias_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_guias_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_guias_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.valvulas_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_valvulas_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_valvulas_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.valvulas_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_valvulas_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_valvulas_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.chavetas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_chavetas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_chavetas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.molas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_molas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_molas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.pratos|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_pratos|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_pratos|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.calcos|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_calcos|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_calcos|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.vedadores|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_vedadores|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_vedadores|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.tucho_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_tucho_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_tucho_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.vareta_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_vareta_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_vareta_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.porca_reguladora|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_porca_reguladora|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_porca_reguladora|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.regl_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_regl_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_regl_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.comando_valvula|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_comando_valvula|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_comando_valvula|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.engr_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_engr_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_engr_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.flange_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_flange_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_flange_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.chaveta_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_chaveta_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_chaveta_comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.eixo_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_eixo_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_eixo_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bucha_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bucha_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bucha_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.suporte_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_suporte_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_suporte_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.paraf_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_paraf_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_paraf_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.trava_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_trava_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_trava_balanceiro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.valvula_pressao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_valvula_pressao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_valvula_pressao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.peneira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_peneira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_peneira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bomba_oleo|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bomba_oleo|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bomba_oleo|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bomba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bomba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bomba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.suporte_bba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_suporte_bba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_suporte_bba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.valv_termostatica|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_valv_termostatica|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_valv_termostatica|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bocal_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bocal_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bocal_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.cx_valv_termost|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_cx_valv_termost|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_cx_valv_termost|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.mang_valv_termost|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_mang_valv_termost|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_mang_valv_termost|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.arruelas_mancal|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_arruelas_mancal|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_arruelas_mancal|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.mang_bba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_mang_bba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_mang_bba_agua|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.cremalheira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_cremalheira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_cremalheira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.paraf_volante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_paraf_volante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_paraf_volante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.paraf_cabecote|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_paraf_cabecote|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_paraf_cabecote|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.colar_engrenagem|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_colar_engrenagem|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_colar_engrenagem|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.chaveta_virarbequim|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_chaveta_virarbequim|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_chaveta_virarbequim|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.vareta_oleo|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_vareta_oleo|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_vareta_oleo|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.engr_virabrequim|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_engr_virabrequim|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_engr_virabrequim|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.pistao_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_pistao_compressorv|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_pistao_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.aneis_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_aneis_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_aneis_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bronz_biela_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bronz_biela_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bronz_biela_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bucha_biela_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bucha_biela_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bucha_biela_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.reparo_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_reparo_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_reparo_compressor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bucha_mancal_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_bucha_mancal_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_bucha_mancal_compr|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.mangueira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_mangueira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_mangueira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.camisa_cilindro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_camisa_cilindro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_camisa_cilindro|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.abracadeira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_abracadeira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_abracadeira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.rep_compressor_sup|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_rep_compressor_sup|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_rep_compressor_sup|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.rep_compressor_inf|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_rep_compressor_inf|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_rep_compressor_inf|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.filtro_lubrificante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_filtro_lubrificante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_filtro_lubrificante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.valv_filtro_lubrif|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_valv_filtro_lubrif|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.desc_valv_filtro_lubrif|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.componetes|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_carter|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_bujao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_capas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_parafuros|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_parafuros|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.turbin|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bulbo_temp|as_crispy_field }}
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+                {{ form.alternador|as_crispy_field }}
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-2">
+                {{ form.arranque_montado|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bomba_hidraulica|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_peneira|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_flexivel|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.polia|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.tubo_admissao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.tubo_escape|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.carcaca|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.volante|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.plato|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.friccao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.paraf_carter|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.quant_paraf_carter|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.tampa_distribuicao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.tampa_valvulas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.tampa_lateral|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.bielas|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_pistao|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.comando|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.c_polia|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.suporte_motor|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.cano_vareta|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.filtro_comb|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.acelerador|as_crispy_field }}
+            </div>
         </div>
-        <div class="col-2">
-            {{ form.data_saida|as_crispy_field }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            {{ form.numero_chassi|as_crispy_field }}
-        </div>
-        <div class="col-4">
-            {{ form.numero_bloco|as_crispy_field }}
-        </div>
-        <div class="col-4">
-            {{ form.modelo_motor|as_crispy_field }}
-            <br>
+        <div class="row">
+            {{ form.outras_peca|as_crispy_field }}
         </div>
         <hr>
-    </div>
-    <h4>Informações do Serviço</h4><br>
-    <div class="row">
-        <div class="col-2">
-            {{ form.pistao_com_anel|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_pist_c_anel|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_pist_c_anel|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.aneis_do_pistao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_aneis_do_pistao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_aneis_do_pistao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.retentor_tras|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_retentor_tras|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_retentor_tras|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.kits_motor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_kits_motor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_quant_kits_motor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bronz_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bronz_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bronz_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bronzina_mancal|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bronzina_mancal|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bronzina_mancal|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bucha_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bucha_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bucha_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bucha_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bucha_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bucha_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.paraf_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_paraf_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_paraf_biela|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.meia_lua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_meia_lua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_meia_lua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.jogo_de_juntas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_jogo_de_juntas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_jogo_de_juntas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.retentor_diant|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_retentor_diant|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_retentor_diant|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.retentor_tras|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_retentor_tras|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_quant_retentor_tras|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.sedes_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_sedes_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_sedes_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.sedes_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_sedes_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_sedes_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.guias_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_guias_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_guias_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.guias_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_guias_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_guias_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.valvulas_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_valvulas_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_valvulas_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.valvulas_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_valvulas_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_valvulas_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.chavetas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_chavetas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_chavetas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.molas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_molas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_molas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.pratos|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_pratos|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_pratos|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.calcos|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_calcos|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_calcos|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.vedadores|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_vedadores|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_vedadores|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.tucho_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_tucho_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_tucho_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.vareta_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_vareta_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_vareta_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.porca_reguladora|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_porca_reguladora|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_porca_reguladora|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.regl_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_regl_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_regl_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.comando_valvula|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_comando_valvula|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_comando_valvula|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.engr_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_engr_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_engr_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.flange_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_flange_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_flange_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.chaveta_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_chaveta_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_chaveta_comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.eixo_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_eixo_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_eixo_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bucha_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bucha_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bucha_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.suporte_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_suporte_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_suporte_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.paraf_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_paraf_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_paraf_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.trava_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_trava_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_trava_balanceiro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.valvula_pressao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_valvula_pressao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_valvula_pressao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.peneira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_peneira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_peneira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bomba_oleo|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bomba_oleo|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bomba_oleo|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bomba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bomba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bomba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.suporte_bba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_suporte_bba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_suporte_bba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.valv_termostatica|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_valv_termostatica|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_valv_termostatica|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bocal_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bocal_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bocal_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.cx_valv_termost|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_cx_valv_termost|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_cx_valv_termost|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.mang_valv_termost|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_mang_valv_termost|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_mang_valv_termost|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.arruelas_mancal|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_arruelas_mancal|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_arruelas_mancal|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.mang_bba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_mang_bba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_mang_bba_agua|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.cremalheira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_cremalheira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_cremalheira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.paraf_volante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_paraf_volante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_paraf_volante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.paraf_cabecote|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_paraf_cabecote|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_paraf_cabecote|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.colar_engrenagem|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_colar_engrenagem|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_colar_engrenagem|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.chaveta_virarbequim|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_chaveta_virarbequim|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_chaveta_virarbequim|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.vareta_oleo|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_vareta_oleo|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_vareta_oleo|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.engr_virabrequim|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_engr_virabrequim|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_engr_virabrequim|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.pistao_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_pistao_compressorv|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_pistao_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.aneis_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_aneis_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_aneis_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bronz_biela_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bronz_biela_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bronz_biela_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bucha_biela_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bucha_biela_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bucha_biela_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.reparo_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_reparo_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_reparo_compressor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bucha_mancal_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_bucha_mancal_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_bucha_mancal_compr|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.mangueira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_mangueira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_mangueira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.camisa_cilindro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_camisa_cilindro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_camisa_cilindro|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.abracadeira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_abracadeira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_abracadeira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.rep_compressor_sup|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_rep_compressor_sup|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_rep_compressor_sup|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.rep_compressor_inf|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_rep_compressor_inf|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_rep_compressor_inf|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.filtro_lubrificante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_filtro_lubrificante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_filtro_lubrificante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.valv_filtro_lubrif|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_valv_filtro_lubrif|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.desc_valv_filtro_lubrif|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.componetes|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_carter|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_bujao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_capas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_parafuros|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_parafuros|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.turbin|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bulbo_temp|as_crispy_field }}
-        </div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2">
-            {{ form.alternador|as_crispy_field }}
-        </div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2">
-            {{ form.arranque_montado|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bomba_hidraulica|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_peneira|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_flexivel|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.polia|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.tubo_admissao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.tubo_escape|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.carcaca|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.volante|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.plato|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.friccao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.paraf_carter|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.quant_paraf_carter|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.tampa_distribuicao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.tampa_valvulas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.tampa_lateral|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.bielas|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_pistao|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.comando|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.c_polia|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.suporte_motor|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.cano_vareta|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.filtro_comb|as_crispy_field }}
-        </div>
-        <div class="col-2">
-            {{ form.acelerador|as_crispy_field }}
-        </div>
-    </div>
-    <div class="row">
-        {{ form.outras_peca|as_crispy_field }}
-    </div>
-    <hr>
-    <input class="btn btn-primary" type="submit" value="Salvar">
-</form>
+        <input class="btn btn-primary" type="submit" value="Salvar">
+    </form>
 {% endblock %}
