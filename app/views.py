@@ -125,14 +125,14 @@ def listaordem(request):
         return redirect('home')
     
     busca = request.POST.get('campobusca')
-    queryset = Ordem.objects.filter(usuario=request.user.id)
+    queryset = Ordem.objects.filter(cliente__usuario=request.user.id)
 
     if request.method == "POST":
         if request.GET.get('buscaordem'):
             queryset = Ordem.objects.filter(id=busca, usuario=request.user.id)
         elif request.GET.get('buscaordemcliente'):
             queryset = Ordem.objects.filter(cliente=busca, usuario=request.user.id)
-            
+
     context = {
         "queryset": queryset,
     }
