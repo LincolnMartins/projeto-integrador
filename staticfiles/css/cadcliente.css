@@ -1,0 +1,130 @@
+#div_id_nome{
+	display:inline-block;
+	margin-right: 35px;   
+    height: auto;
+}
+
+#div_id_cpf{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_cnpj{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_email{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+
+#div_id_endereco{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_bairro{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_cidade{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_estado{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_cep{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+#div_id_telefone{
+	display:inline-block;
+	margin-right: 35px;
+}
+
+
+
+#id_nome{
+    width: 260px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;
+	
+    
+}
+
+#id_cpf{
+    width: 140px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;
+    
+}
+
+#id_cnpj{
+    width: 140px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;
+    
+}
+
+#id_email{
+    width: 140px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;
+    
+}
+
+#id_endereco{
+    width: 300px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;    
+}
+
+#id_bairro{
+    width: 220px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;    
+}
+
+
+#id_cidade{
+    width: 180px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;    
+}
+
+#id_estado{
+    width: 100px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;    
+}
+
+#id_cep{
+    width: 60px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;    
+}
+
+#id_telefone{
+    width: 120px;
+    height: auto;
+    clear: left;
+    margin-bottom: 15px;    
+}
+
