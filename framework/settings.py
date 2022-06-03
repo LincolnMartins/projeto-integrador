@@ -154,8 +154,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = 'home'
-
 SITE_ID = 1
 
 SOCIALACCOUNT_PROVIDERS = {
