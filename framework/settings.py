@@ -155,6 +155,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
+LOGIN_REDIRECT_URL = '../dashboard/'
+
+# Additional configuration settings
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_LOGOUT_ON_GET= True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_REQUIRED = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -175,5 +182,3 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
-
-LOGIN_REDIRECT_URL = '../dashboard/'
