@@ -96,6 +96,10 @@ input[type="submit"]:hover {
   margin-bottom: 10px;
 }
 
+#google-container {
+  align-items: center;
+}
+
 /* Google */
 .google-btn {
   width: 184px;
