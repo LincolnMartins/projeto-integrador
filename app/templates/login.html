@@ -41,16 +41,14 @@
             <p>Ainda não tem uma conta?</p>
             <a href="{% url 'registro' %}">Registrar</a>
           </div>
-        {% endblock %}
-        {% block link %}
-        <a href="{% url 'home' %}/accounts/google/login">
-          <div class="google-btn">
-            <div class="google-icon-wrapper">
-                <img alt="Google" class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+          <a href="{% url 'home' %}/accounts/google/login">
+            <div class="google-btn">
+              <div class="google-icon-wrapper">
+                  <img alt="Google" class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+              </div>
+              <p class="btn-text"><strong>Login com google</strong></p>
             </div>
-            <p class="btn-text"><strong>Sign in with google</strong></p>
-          </div>
-        </a>
+          </a>
         {% endblock %}
       </div>
     {% endblock %}
