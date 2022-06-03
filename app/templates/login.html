@@ -42,6 +42,7 @@
             <a href="{% url 'registro' %}">Registrar</a>
           </div>
         {% endblock %}
+        {% block link %}
         <div class="google-btn">
           <div class="google-icon-wrapper">
             <a href="{% url 'home' %}/accounts/google/login">
@@ -50,6 +51,7 @@
           </div>
           <p class="btn-text"><b>Sign in with google</b></p>
         </div>
+        {% endblock %}
       </div>
     {% endblock %}
   </body>
