@@ -127,10 +127,10 @@ input[type="submit"]:hover {
     letter-spacing: 0.2px;
     font-family: "Roboto";
   }
-  .btn-text:hover {
-  box-shadow: 0 0 6px #4285f4;
+  .google-btn:hover {
+    box-shadow: 0 0 6px #4285f4;
   }
-  .btn-text:active {
+  .google-btn:active {
     background: #1669F2;
   }
 
