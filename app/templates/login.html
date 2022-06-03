@@ -42,12 +42,11 @@
             <a href="{% url 'registro' %}">Registrar</a>
           </div>
           <div id="google-container">
-            <a href="https://accounts.google.com/o/oauth2/auth?client_id=10992067789-h47aunqni2jifet3ohgo8aso32rfkdla.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fretifica.herokuapp.com%2Faccounts%2Fgoogle%2Flogin%2Fcallback%2F&scope=email+profile&response_type=code&state=IA73uFGZqHXl&access_type=online">
+            <a href="{% provider_login_url 'google' %}">
               <div class="google-btn">
                 <div class="google-icon-wrapper">
                     <img alt="Google" class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                 </div>
-                a
                 <p class="btn-text"><strong>Login com google</strong></p>
               </div>
             </a>
