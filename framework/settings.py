@@ -165,9 +165,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
         'SCOPE': [
             'profile',
             'email',
@@ -180,5 +177,30 @@ SOCIALACCOUNT_PROVIDERS = {
             'secret': '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',
             'key': ''
         }
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'LOCALE_FUNC': lambda request: 'pt_BR',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
+        'APP': {
+            'client_id': '569400044554212',
+            'secret': '0f57d491f581a5c93f42104857b9593c',
+            'key': ''
+            }
     }
 }
