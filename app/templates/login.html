@@ -41,6 +41,7 @@
             <p>Ainda não tem uma conta?</p>
             <a href="{% url 'registro' %}">Registrar</a>
           </div>
+          {% load socialaccount %}
           <div id="google-container">
             <a href="{% provider_login_url 'google' %}">
               <div class="google-btn">
